@@ -8,7 +8,7 @@ export const Header = () => {
     };
   
     return (
-      <div className="flex justify-between items-center m-4">
+      <div className="flex justify-between items-center m-8">
         <a href="#home" className='text-[25px]'>April Design</a>
         <div className="hidden md:flex gap-8">
           <a href="#home">Home</a>
