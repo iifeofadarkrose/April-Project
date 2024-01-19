@@ -1,19 +1,27 @@
-import AboutUs from "./components/AboutUs";
-import Awards from "./components/Awards";
-import ContactUs from "./components/ContactUs";
-import { Header } from "./components/Header";
-import Hero from "./components/Hero";
-import OurWork from "./components/OurWork";
+import { Routes, Route } from "react-router-dom";
+import MainPage from "./components/MainPage";
+import Header from "./components/Header";
+import React from "react";
 
-export default function App() {
+const Work = React.lazy(() => import("./components/OurWork.jsx"));
+
+const App = () => {
   return (
-    <div>
-      <Header/>
-      <Hero/>
-      <AboutUs/>
-      <OurWork/>
-      <Awards/>
-      <ContactUs/>
-    </div>
-  )
-}
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route
+          path="/projects"
+          element={
+            <React.Suspense fallback={<div>Loading...</div>}>
+              <Work />
+            </React.Suspense>
+          }
+        />
+      </Routes>
+    </>
+  );
+};
+
+export default App;

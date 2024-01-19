@@ -1,36 +1,23 @@
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
-
 export default function ContactUs() {
   return (
-    <div className="isolate bg-white px-6 py-8 sm:py-8 lg:px-8">
-      <div
-        className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
-        aria-hidden="true"
-      >
-        <div
-          className="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
-          style={{
-            clipPath:
-              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-          }}
-        />
-      </div>
+    <div id="#contact">
       <div className="mx-auto max-w-2xl text-center">
-        <h1 className="uppercase text-3xl">Contact <span className="uppercase text-[#9E8372]">Us</span></h1>
+        <h1 className="uppercase text-3xl mt-10">
+          Contact <span className="uppercase text-[#9E8372]">Us</span>
+        </h1>
       </div>
       <form
-        action="#"
+        action="https://getform.io/f/b5c3b966-294b-4999-b976-a711d8446b43"
         method="POST"
-        className="mx-auto mt-4 max-w-xl sm:mt-20 bg-[#D9D9D9] p-10"
+        encType="multipart/form-data"
+        className="mx-auto mt-4 max-w-xl sm:mt-10 bg-[#D9D9D9] p-10"
       >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label
               htmlFor="first-name"
               className="block text-sm font-semibold leading-6 text-[#5F5F5F]"
-            >
-              
-            </label>
+            ></label>
             <div className="mt-2.5">
               <input
                 type="text"
@@ -46,9 +33,7 @@ export default function ContactUs() {
             <label
               htmlFor="last-name"
               className="block text-sm font-semibold leading-6 text-[#5F5F5F]"
-            >
-              
-            </label>
+            ></label>
             <div className="mt-2.5">
               <input
                 type="text"
@@ -65,9 +50,7 @@ export default function ContactUs() {
             <label
               htmlFor="email"
               className="block text-sm font-semibold leading-6 text-[#5F5F5F]"
-            >
-            
-            </label>
+            ></label>
             <div className="mt-2.5">
               <input
                 type="email"
@@ -83,9 +66,7 @@ export default function ContactUs() {
             <label
               htmlFor="phone-number"
               className="block text-sm font-semibold leading-6 text-[#5F5F5F]"
-            >
-             
-            </label>
+            ></label>
             <div className="relative mt-2.5">
               <input
                 type="tel"
@@ -101,9 +82,7 @@ export default function ContactUs() {
             <label
               htmlFor="message"
               className="block text-sm font-semibold leading-6 text-[#5F5F5F]"
-            >
-            
-            </label>
+            ></label>
             <div className="mt-2.5">
               <textarea
                 name="message"
@@ -121,7 +100,7 @@ export default function ContactUs() {
             type="submit"
             className="block w-full rounded-md bg-[#5F5F5F] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-           Lets talk
+            Lets talk
           </button>
         </div>
       </form>
