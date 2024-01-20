@@ -1,6 +1,11 @@
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import bg1 from "../assets/hero1.png";
 
 const Hero = () => {
+  const scrollToBottom = () => {
+    scroll.scrollToBottom();
+  };
+
   return (
     <div className="m-8 flex justify-center md:m-16 mb-20">
       <div className="flex flex-wrap max-h-[100px] lg:max-w-[400px] mr-[20px] ">
@@ -11,9 +16,15 @@ const Hero = () => {
           <span className="uppercase text-[#9E8372] text-5xl md:text-8xl lg:text-11xl">
             design
           </span>
-          <button className="bg-[#5F5F5F] text-white text-xl px-[5%] py-[1%] md:text-2xl lg:text-3xl">
+          <ScrollLink
+            to="contact"
+            smooth={true}
+            duration={500}
+            className="bg-[#5F5F5F] text-white text-xl px-[5%] py-[1%] md:text-2xl lg:text-3xl cursor-pointer"
+            onClick={scrollToBottom}
+          >
             Contact us
-          </button>
+          </ScrollLink>
         </div>
       </div>
       <div className="flex">
