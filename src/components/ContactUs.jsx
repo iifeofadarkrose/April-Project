@@ -1,6 +1,6 @@
 export default function ContactUs() {
   return (
-    <div id="#contact">
+    <div id="contact">
       <div className="mx-auto max-w-2xl text-center">
         <h1 className="uppercase text-3xl mt-10">
           Contact <span className="uppercase text-[#9E8372]">Us</span>
@@ -10,7 +10,7 @@ export default function ContactUs() {
         action="https://getform.io/f/b5c3b966-294b-4999-b976-a711d8446b43"
         method="POST"
         encType="multipart/form-data"
-        className="mx-auto mt-4 max-w-xl sm:mt-10 bg-[#D9D9D9] p-10"
+        className="mx-auto mt-4 max-w-xl lg:max-w-4xl sm:mt-10 bg-[#D9D9D9] p-10"
       >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
@@ -25,7 +25,7 @@ export default function ContactUs() {
                 id="first-name"
                 autoComplete="given-name"
                 placeholder="Enter your first name"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-[#5F5F5F] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-[#5F5F5F] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#9E8372] sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -41,7 +41,7 @@ export default function ContactUs() {
                 id="last-name"
                 autoComplete="family-name"
                 placeholder="Enter your last name"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-[#5F5F5F] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-[#5F5F5F] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#9E8372] sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -58,7 +58,7 @@ export default function ContactUs() {
                 id="email"
                 autoComplete="email"
                 placeholder="Enter your email address"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-[#5F5F5F] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-[#5F5F5F] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#9E8372] sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -74,7 +74,7 @@ export default function ContactUs() {
                 id="phone-number"
                 autoComplete="tel"
                 placeholder="Enter your phone number"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-[#5F5F5F] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-[#5F5F5F] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#9E8372] sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -89,7 +89,7 @@ export default function ContactUs() {
                 id="message"
                 rows={4}
                 placeholder="Enter your message"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-[#5F5F5F] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-[#5F5F5F] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#9E8372] sm:text-sm sm:leading-6"
                 defaultValue={""}
               />
             </div>
@@ -98,7 +98,7 @@ export default function ContactUs() {
         <div className="mt-10">
           <button
             type="submit"
-            className="block w-full rounded-md bg-[#5F5F5F] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="block w-full rounded-md bg-[#5F5F5F] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#9E8372] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9E8372]"
           >
             Lets talk
           </button>
