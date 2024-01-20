@@ -205,7 +205,7 @@ const OurWork = () => {
             <Tab
               key={index}
               value={index}
-              className={`rounded-sm max-w-sm text-[10px] md:text-[18px] border-[#9E8372] border-[2px] mr-1 ${selectedTabIndex === index ? 'bg-[#5F5F5F] text-white' : ''}`}
+              className={`rounded-sm max-w-sm text-[10px] md:text-[16px] border-[#9E8372] border-[2px] mr-1 ${selectedTabIndex === index ? 'bg-[#5F5F5F] text-white' : ''}`}
               onClick={() => handleTabChange(index)} // Добавил обработчик клика
             >
               {label}

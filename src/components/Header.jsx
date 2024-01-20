@@ -11,32 +11,26 @@ const Header = () => {
 
   return (
     <div className="">
-      <div className="flex justify-between md:justify-center items-center m-8 md:mx-16">
-      <ScrollLink
-  to="/"
-  smooth={true}
-  duration={500}
-  className="text-[20px] md:text-2xl lg:text-4xl lg:mr-[275px]"
-  onClick={() => scroll.scrollToTop()}
->
-  <div>April Design</div>
-</ScrollLink>
+      <div className="flex justify-between lg:justify-center items-center m-8 md:mx-16">
+        <Link
+          to="/"
+          smooth={true}
+          duration={500}
+          className="text-[20px] md:text-2xl lg:text-4xl lg:mr-[275px]"
+          onClick={() => scroll.scrollToTop()}
+        >
+          <div>April Design</div>
+        </Link>
         <div className="hidden md:flex gap-8 md:text-[16px] lg:text-2xl">
-          <ScrollLink
-            to="/"
-            smooth={true}
-            duration={500}
-            className="block"
-            onClick={toggleMenu}
-          >
+          <Link to="/" className="block" onClick={toggleMenu}>
             Home
-          </ScrollLink>
+          </Link>
           <Link to="/projects">Our work</Link>
           <ScrollLink
             to="about"
             smooth={true}
             duration={500}
-            className="block"
+            className="block cursor-pointer"
             onClick={toggleMenu}
           >
             About us
@@ -45,7 +39,7 @@ const Header = () => {
             to="contact"
             smooth={true}
             duration={500}
-            className="block"
+            className="block cursor-pointer"
             onClick={toggleMenu}
           >
             Contact us
@@ -77,34 +71,38 @@ const Header = () => {
             )}
           </svg>
           {isMenuOpen && (
-            <div className="absolute bg-white py-2 px-4 border shadow-md rounded-lg z-10 top-full mt-2 right-0">
-              <Link
-                to="/projects"
-                className="block cursor-pointer"
-                onClick={toggleMenu}
-              >
-                Our work
-              </Link>
-              <ScrollLink
-                to="about"
-                smooth={true}
-                duration={500}
-                className="block cursor-pointer"
-                onClick={toggleMenu}
-              >
-                About us
-              </ScrollLink>
-              <ScrollLink
-                to="contact"
-                smooth={true}
-                duration={500}
-                className="block cursor-pointer"
-                onClick={toggleMenu}
-              >
-                Contact us
-              </ScrollLink>
-            </div>
-          )}
+  <div className="absolute bg-white py-2 px-4 border border-solid border-gray-300 shadow-md rounded-lg z-50 top-full mt-2 right-0">
+    <Link
+      to="/projects"
+      className="block cursor-pointer"
+      onClick={toggleMenu}
+      style={{ whiteSpace: 'nowrap' }}
+    >
+      Our work
+    </Link>
+    <ScrollLink
+      to="about"
+      smooth={true}
+      duration={500}
+      className="block cursor-pointer"
+      onClick={toggleMenu}
+      style={{ whiteSpace: 'nowrap' }}
+    >
+      About us
+    </ScrollLink>
+    <ScrollLink
+      to="contact"
+      smooth={true}
+      duration={500}
+      className="block cursor-pointer"
+      onClick={toggleMenu}
+      style={{ whiteSpace: 'nowrap' }}
+    >
+      Contact us
+    </ScrollLink>
+  </div>
+)}
+
         </div>
       </div>
     </div>

@@ -2,13 +2,12 @@ export default function ContactUs() {
   return (
     <div id="contact">
       <div className="mx-auto max-w-2xl text-center">
-        <h1 className="uppercase text-3xl mt-10">
+        <h1 className="uppercase text-3xl mt-10 md:text-5xl">
           Contact <span className="uppercase text-[#9E8372]">Us</span>
         </h1>
       </div>
       <form
-        action="https://getform.io/f/b5c3b966-294b-4999-b976-a711d8446b43"
-        method="POST"
+        action="https://getform.io/f/c8027841-9a14-4928-9762-595b8c68913b" method="POST"
         encType="multipart/form-data"
         className="mx-auto mt-4 max-w-xl lg:max-w-4xl sm:mt-10 bg-[#D9D9D9] p-10"
       >
