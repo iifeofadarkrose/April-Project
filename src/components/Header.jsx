@@ -16,10 +16,10 @@ const Header = () => {
           to="/"
           smooth={true}
           duration={500}
-          className="text-[20px] md:text-2xl lg:text-4xl lg:mr-[275px]"
+          className="text-[20px] md:text-2xl lg:text-4xl lg:mr-[185px]"
           onClick={() => scroll.scrollToTop()}
         >
-          <div>April Design</div>
+          <div>Atelier April Design</div>
         </Link>
         <div className="hidden md:flex gap-8 md:text-[16px] lg:text-2xl">
           <Link to="/" className="block" onClick={toggleMenu}>
