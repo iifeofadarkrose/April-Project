@@ -12,7 +12,7 @@ const AboutUs = () => {
           <h1 className="ml-2 uppercase text-xl md:text-7xl text-[#9E8372]">
             About <span className="uppercase text-[#9E8372]">Us</span>
           </h1>
-          <p className="flex text-[8px] ml-2 md:m-4 md:mt-10 md:text-sm lg:text-xl">
+          <p className="flex text-[1.5vw] ml-2 md:m-4 md:mt-10 md:text-xl lg:text-2xl">
             We seamlessly blend aesthetics and functionality in crafting
             residential and public spaces. From striking exteriors to meticulous
             reconstructions, we specialize in creating captivating environments

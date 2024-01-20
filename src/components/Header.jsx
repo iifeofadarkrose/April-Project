@@ -16,7 +16,7 @@ const Header = () => {
           to="/"
           smooth={true}
           duration={500}
-          className="text-[20px] md:text-2xl lg:text-4xl lg:mr-[185px]"
+          className="text-[20px] md:text-2xl lg:text-4xl lg:mr-[175px]"
           onClick={() => scroll.scrollToTop()}
         >
           <div>Atelier April Design</div>
@@ -72,6 +72,9 @@ const Header = () => {
           </svg>
           {isMenuOpen && (
   <div className="absolute bg-white py-2 px-4 border border-solid border-gray-300 shadow-md rounded-lg z-50 top-full mt-2 right-0">
+     <Link to="/" className="block" onClick={toggleMenu}>
+            Home
+          </Link>
     <Link
       to="/projects"
       className="block cursor-pointer"

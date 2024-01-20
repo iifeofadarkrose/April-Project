@@ -103,15 +103,17 @@ const OurWork = () => {
     setSelectedTabIndex(index);
   };
 
+  const currentProject = Object.keys(imagesByProject)[selectedTabIndex];
+
   return (
     <div className="m-8" id="projects">
       <Tabs value={selectedTabIndex} onChange={handleTabChange}>
-        <TabsHeader  className="flex-wrap justify-center md:flex-nowrap">
+        <TabsHeader className="flex-wrap justify-center md:flex-nowrap">
           {Object.keys(imagesByProject).map((project, index) => (
             <Tab
               key={index}
               value={index}
-              className={`rounded-sm max-w-sm w-[180px] h-[40px] mb-1 md:w-full md:h-[60px] text-[10px] md:text-[16px] border-[#9E8372] border-[2px] mr-1 ${
+              className={`rounded-sm max-w-sm w-[180px] h-[40px] mb-1 md:w-full md:h-[60px] text-[16px] md:text-[16px] border-[#9E8372] border-[2px] mr-1 ${
                 selectedTabIndex === index ? "bg-[#5F5F5F] text-white" : ""
               }`}
               onClick={() => handleTabChange(index)}
@@ -121,26 +123,21 @@ const OurWork = () => {
           ))}
         </TabsHeader>
 
-        <TabsBody className="grid grid-cols-1 gap-4 ">
-          {Object.keys(imagesByProject).map((project, index) => (
-            <TabPanel
-              className="grid grid-cols-1 gap-4 md:grid-cols-3"
-              key={index}
-              value={index}
-            >
-              {imagesByProject[project].map((imageLink, imgIndex) => (
-                <LazyLoad key={imgIndex} height={200} offset={100}>
-                  <div>
-                    <img
-                      className="h-[200px] w-full md:h-[320px] max-w-full rounded-lg object-cover object-center"
-                      src={imageLink}
-                      alt={`image-${imgIndex}`}
-                    />
-                  </div>
-                </LazyLoad>
-              ))}
-            </TabPanel>
-          ))}
+        <TabsBody className="grid grid-cols-1 gap-4">
+          <TabPanel value={selectedTabIndex} className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {imagesByProject[currentProject].map((imageLink, imgIndex) => (
+              <LazyLoad key={imgIndex} height={200} offset={100}>
+                <div className="flex justify-center items-center">
+                  <img
+                    className="h-[200px] w-[320px] md:w-[600px] md:h-[200px] lg:h-[400px] rounded-lg object-cover object-center"
+                    src={imageLink}
+                    alt={`image-${imgIndex}`}
+                    loading="lazy"
+                  />
+                </div>
+              </LazyLoad>
+            ))}
+          </TabPanel>
         </TabsBody>
       </Tabs>
     </div>
