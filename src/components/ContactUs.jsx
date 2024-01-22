@@ -9,7 +9,7 @@ export default function ContactUs() {
       <form
         action="https://getform.io/f/c8027841-9a14-4928-9762-595b8c68913b" method="POST"
         encType="multipart/form-data"
-        className="mx-auto mt-4 max-w-xl lg:max-w-4xl sm:mt-10 bg-[#D9D9D9] p-10"
+        className="mx-auto mt-4 max-w-xl lg:max-w-4xl sm:mt-10 bg-[#D9D9D9] p-10 mb-[2%]"
       >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>

@@ -1,5 +1,6 @@
 
 import AboutUs from './AboutUs';
+import Awards from './Awards';
 import ContactUs from './ContactUs';
 import Hero from './Hero';
 
@@ -8,7 +9,7 @@ const MainPage = () => {
     <div>
         <Hero/>
         <AboutUs/>
-        {/* <Awards/> */}
+        <Awards/>
         <ContactUs/>
     </div>
   )

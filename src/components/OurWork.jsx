@@ -108,12 +108,12 @@ const OurWork = () => {
   return (
     <div className="m-8" id="projects">
       <Tabs value={selectedTabIndex} onChange={handleTabChange}>
-        <TabsHeader className="flex-wrap justify-center md:flex-nowrap">
+        <TabsHeader className="flex-wrap justify-center md:flex-nowrap overflow-x-auto">
           {Object.keys(imagesByProject).map((project, index) => (
             <Tab
               key={index}
               value={index}
-              className={`rounded-sm max-w-sm w-[180px] h-[40px] mb-1 md:w-full md:h-[60px] text-[16px] md:text-[16px] border-[#9E8372] border-[2px] mr-1 ${
+              className={`rounded-sm w-[140px] md:max-w-sm h-[40px] mb-1 md:w-full md:h-[60px] text-[16px] md:text-[16px] border-[#9E8372] border-[2px] mr-1 ${
                 selectedTabIndex === index ? "bg-[#5F5F5F] text-white" : ""
               }`}
               onClick={() => handleTabChange(index)}
