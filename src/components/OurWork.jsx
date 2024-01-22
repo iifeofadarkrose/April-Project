@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Tabs, TabsHeader, TabsBody, Tab, TabPanel } from "@material-tailwind/react";
 import LazyLoad from "react-lazyload";
+import { BallTriangle } from "react-loader-spinner";
 
 // Импорт изображений для каждого проекта
 import alegro1 from "../assets/images/Alegro/alegro1.jpg";
@@ -14,7 +15,6 @@ import alegro9 from "../assets/images/Alegro/alegro9.jpg";
 import alegro10 from "../assets/images/Alegro/alegro10.jpg";
 import alegro11 from "../assets/images/Alegro/alegro11.jpg";
 import alegro12 from "../assets/images/Alegro/alegro12.jpg";
-
 import office1 from "../assets/images/Office/office1.png";
 import office2 from "../assets/images/Office/office2.png";
 import office3 from "../assets/images/Office/office3.png";
@@ -51,10 +51,10 @@ import in7 from "../assets/images/IntAblon/in7-min.png";
 import in8 from "../assets/images/IntAblon/in8-min.png";
 import in9 from "../assets/images/IntAblon/in9-min.png";
 
-import hon1 from '../assets/images/Honf/hon1-min.png';
-import hon2 from '../assets/images/Honf/hon2-min.png';
-import hon3 from '../assets/images/Honf/hon3-min.png';
-import hon4 from '../assets/images/Honf/hon4-min.png';
+// import hon1 from '../assets/images/Honf/hon1-min.png';
+// import hon2 from '../assets/images/Honf/hon2-min.png';
+// import hon3 from '../assets/images/Honf/hon3-min.png';
+// import hon4 from '../assets/images/Honf/hon4-min.png';
 import hon5 from '../assets/images/Honf/hon5-min.png';
 import hon6 from '../assets/images/Honf/hon6-min.png';
 import hon7 from '../assets/images/Honf/hon7-min.png';
@@ -92,12 +92,22 @@ const imagesByProject = {
   "Coat-store": [coats1, coats3, coats4, coats5, coats6],
   "House-Ablon": [house1, house2, house3, house4],
   "Interier-Ablon": [in1, in2, in3, in4, in5, in6, in7, in8, in9],
-  "Interier-Honfleur": [hon1, hon2, hon3, hon4, hon5, hon6, hon7, hon8, in9],
+  "Interier-Honfleur": [ hon5, hon6, hon7, hon8],
   "Hanover-Germany": [ger1, ger2, ger3, ger4, ger5, ger6, ger7, ger8, ger9, ger10, ger11, ger12, ger13, ger14, ger15, ger16, ger17, ger18, ger19, ger20, ger21, ger22, ger23],
 };
 
+
 const OurWork = () => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, [selectedTabIndex]);
 
   const handleTabChange = (index) => {
     setSelectedTabIndex(index);
@@ -127,8 +137,34 @@ const OurWork = () => {
           <TabPanel value={selectedTabIndex} className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {imagesByProject[currentProject].map((imageLink, imgIndex) => (
               <LazyLoad key={imgIndex} height={200} offset={100}>
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center items-center relative">
+                  {loading ? (
+                    <div
+                      className="loader-overlay"
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        backgroundColor: "rgba(0, 0, 0, 0.5)",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        zIndex: 9999,
+                      }}
+                    >
+                      <BallTriangle
+                        height={30}
+                        width={30}
+                        radius={5}
+                        color="#ffffff"
+                        ariaLabel="ball-triangle-loading"
+                      />
+                    </div>
+                  ) : null}
                   <img
+                    onLoad={() => setLoading(false)}
                     className="h-[200px] w-[320px] md:w-[600px] md:h-[200px] lg:h-[400px] rounded-lg object-cover object-center"
                     src={imageLink}
                     alt={`image-${imgIndex}`}
