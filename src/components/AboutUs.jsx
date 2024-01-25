@@ -4,7 +4,7 @@ const AboutUs = () => {
     <div className="m-8 md:m-16" id="about">
       <div className="flex flex-nowrap lg:justify-center">
         <img
-          className="h-[200px] w-[220px] md:w-[350px] md:h-[470px] lg:w-[450px] lg:mr-24"
+          className="h-[150px] w-[150px] md:w-[350px] md:h-[470px] lg:w-[450px] lg:mr-24"
           src={bg2}
           alt=""
         />
@@ -12,7 +12,7 @@ const AboutUs = () => {
           <h1 className="ml-2 uppercase text-xl md:text-7xl text-[#9E8372]">
             About <span className="uppercase text-[#9E8372]">Us</span>
           </h1>
-          <p className="flex text-[1.5vw] ml-2 md:m-4 md:mt-10 md:text-xl lg:text-2xl">
+          <p className="flex text-[8px] ml-2 md:m-4 md:mt-10 md:text-xl lg:text-2xl">
             We seamlessly blend aesthetics and functionality in crafting
             residential and public spaces. From striking exteriors to meticulous
             reconstructions, we specialize in creating captivating environments
