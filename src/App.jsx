@@ -1,15 +1,15 @@
 import { Routes, Route } from "react-router-dom";
 import MainPage from "./components/MainPage";
-import Header from "./components/Header";
 import React from "react";
 import { BallTriangle } from "react-loader-spinner";
+import WorkHeader from "./components/WorkHeader.jsx";
 
 const Work = React.lazy(() => import("./components/OurWork.jsx"));
 
 const App = () => {
   return (
     <>
-      <Header />
+      
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route
@@ -42,6 +42,7 @@ const App = () => {
                 </div>
               }
             >
+              <WorkHeader/>
               <Work />
             </React.Suspense>
           }
