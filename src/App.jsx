@@ -42,7 +42,7 @@ const App = () => {
                 </div>
               }
             >
-              <WorkHeader/>
+              <WorkHeader />
               <Work />
             </React.Suspense>
           }
