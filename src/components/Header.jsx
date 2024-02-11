@@ -1,5 +1,4 @@
-// Header.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import { useTranslation } from "react-i18next";
@@ -17,7 +16,11 @@ const Header = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState("Eng");
+  const [selectedLanguage, setSelectedLanguage] = useState(localStorage.getItem('selectedLanguage') || "Eng");
+
+  useEffect(() => {
+    i18n.changeLanguage(selectedLanguage.toLowerCase());
+  }, [selectedLanguage, i18n]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -30,7 +33,7 @@ const Header = () => {
   const selectLanguage = (language) => {
     setSelectedLanguage(language);
     setIsOpen(false);
-    i18n.changeLanguage(language.toLowerCase());
+    localStorage.setItem('selectedLanguage', language);
   };
 
   return (

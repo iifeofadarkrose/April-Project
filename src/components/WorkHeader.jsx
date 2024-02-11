@@ -1,12 +1,27 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { animateScroll as scroll } from "react-scroll";
+import en from "../locales/en.json";
+import fr from "../locales/fr.json";
 
 const WorkHeader = () => {
+  const { t } = useTranslation("translation", {
+    defaultNS: "translation",
+    resources: {
+      en: { translation: en },
+      fr: { translation: fr }
+    }
+  });
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+ 
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+ 
 
   return (
     <div className="">
@@ -18,13 +33,13 @@ const WorkHeader = () => {
           className="text-[20px] md:text-2xl lg:text-4xl lg:mr-[175px]"
           onClick={() => scroll.scrollToTop()}
         >
-          <div>Atelier April Design</div>
+          <div>{t("title")}</div>
         </Link>
         <div className="hidden md:flex gap-8 md:text-[16px] lg:text-2xl">
           <Link to="/" className="block" onClick={toggleMenu}>
-            Home
+            {t("home")}
           </Link>
-          <Link to="/projects">Our work</Link>
+          <Link to="/projects">{t("our_work")}</Link>
         </div>
         <div className="md:hidden relative">
           <svg
@@ -52,24 +67,28 @@ const WorkHeader = () => {
             )}
           </svg>
           {isMenuOpen && (
-  <div className="absolute bg-white py-2 px-4 border border-solid border-gray-300 shadow-md rounded-lg z-50 top-full mt-2 right-0">
-     <Link to="/" className="block" onClick={toggleMenu}>
-            Home
-          </Link>
-    <Link
-      to="/projects"
-      className="block cursor-pointer"
-      onClick={toggleMenu}
-      style={{ whiteSpace: 'nowrap' }}
-    >
-      Our work
-    </Link>
-  </div>
-)}
-
+            <div className="absolute bg-white py-2 px-4 border border-solid border-gray-300 shadow-md rounded-lg z-50 top-full mt-2 right-0">
+              <Link to="/" className="block" onClick={toggleMenu}>
+                {t("home")}
+              </Link>
+              <Link
+                to="/projects"
+                className="block cursor-pointer"
+                onClick={toggleMenu}
+                style={{ whiteSpace: "nowrap" }}
+              >
+                {t("our_work")}
+              </Link>
+            </div>
+          )}
         </div>
-      </div>
-    </div>
+    
+         
+            
+          </div>
+        </div>
+     
+    
   );
 };
 
