@@ -139,92 +139,6 @@ import re5 from "../assets/images/Re2/re5-min.jpg";
 
 import { useTranslation } from "react-i18next";
 
-const imagesByProject = {
-  "Alegro-Paris": [
-    alegro1,
-    alegro2,
-    alegro4,
-    alegro5,
-    alegro6,
-    alegro7,
-    alegro8,
-    alegro9,
-    alegro10,
-    alegro11,
-    alegro12,
-  ],
-  "Office-Project": [office1, office2, office3, office4, office5, office6],
-  "Clothes-boutique": [
-    clothes1,
-    clothes2,
-    clothes3,
-    clothes5,
-    clothes7,
-    clothes8,
-    clothes6,
-  ],
-  "Coat-store": [coats1, coats3, coats4, coats5, coats6],
-  "House-Ablon": [house1, house2, house3, house4],
-  "Interier-Ablon": [in1, in2, in3, in4, in5, in6, in7, in8, in9],
-  "Interier-Honfleur": [hon5, hon6, hon7, hon8],
-  "Hanover-Germany": [
-    ger1,
-    ger2,
-    ger3,
-    ger4,
-    ger5,
-    ger6,
-    ger7,
-    ger8,
-    ger9,
-    ger10,
-    ger11,
-    ger12,
-    ger13,
-    ger14,
-    ger15,
-    ger16,
-    ger17,
-    ger18,
-    ger19,
-    ger20,
-    ger21,
-    ger22,
-    ger23,
-  ],
-  "Office Green Farm Cosmetic": [
-    green1,
-    green2,
-    green3,
-    green4,
-    green5,
-    green6,
-    green7,
-    green8,
-    green9,
-    green10,
-    green11,
-    green12,
-    green13,
-    green14,
-    green15,
-    green16,
-    green17,
-    green18,
-    green19,
-    green20,
-    green21,
-    green22,
-    green23,
-    green24,
-    green25,
-  ],
-  "Beauty store": [bea1, bea2, bea3, bea4, bea5],
-  "Apartment interior": [fl1, fl2, fl3, fl4, fl5,fl6,fl7,fl8],
-  "Restaurant in Honfleur. France": [re1, re2, re3, re4, re5],
-};
-
-
 const OurWork = () => {
   const { t } = useTranslation("translation");
 
@@ -243,13 +157,147 @@ const OurWork = () => {
     setSelectedTabIndex(index);
   };
 
-  const currentProject = Object.keys(imagesByProject)[selectedTabIndex];
+  const projects = {
+    "Alegro-Paris": {
+      name: "Alegro Paris",
+      translationKey: "alegro-paris",
+      images: [ alegro1,
+        alegro2,
+        alegro4,
+        alegro5,
+        alegro6,
+        alegro7,
+        alegro8,
+        alegro9,
+        alegro10,
+        alegro11,
+        alegro12,]
+    },
+    "Office-Project": {
+      name: "Office Project",
+      translationKey: "office-project",
+      images: [office1, office2, office3, office4, office5, office6]
+    },
+    "Clothes-boutique":{
+      name:"Clothes boutique",
+      translationKey: "clothes-boutique",
+      images:[
+      clothes1,
+      clothes2,
+      clothes3,
+      clothes5,
+      clothes7,
+      clothes8,
+      clothes6,
+    ],
+    },
+
+    "Coat-store":{
+      name: 'Coat-store',
+      translationKey: "coat-store",
+     images: [coats1, coats3, coats4, coats5, coats6],
+    } ,
+
+    "House-Ablon": {
+      name:'House-Ablon',
+      translationKey: "house-ablon",
+      images:[house1, house2, house3, house4],
+    },
+    "Interier-Ablon":{
+      name:'Interier-Ablon',
+      translationKey: "interier-ablon",
+      images:[in1, in2, in3, in4, in5, in6, in7, in8, in9],
+    } ,
+    "Interier-Honfleur":{
+      name:'Interier-Honfleur',
+      translationKey: "interier-honfleur",
+      images:[hon5, hon6, hon7, hon8],
+    } ,
+    "Hanover-Germany": {
+      name:'Hanover-Germany',
+      translationKey: "hanover-germany",
+      images:[
+      ger1,
+      ger2,
+      ger3,
+      ger4,
+      ger5,
+      ger6,
+      ger7,
+      ger8,
+      ger9,
+      ger10,
+      ger11,
+      ger12,
+      ger13,
+      ger14,
+      ger15,
+      ger16,
+      ger17,
+      ger18,
+      ger19,
+      ger20,
+      ger21,
+      ger22,
+      ger23,
+    ],
+    },
+    "Office Green Farm Cosmetic":{
+      name:"Office Green Farm Cosmetic",
+      translationKey: "office-green-farm-cosmetic",
+      images:[
+      green1,
+      green2,
+      green3,
+      green4,
+      green5,
+      green6,
+      green7,
+      green8,
+      green9,
+      green10,
+      green11,
+      green12,
+      green13,
+      green14,
+      green15,
+      green16,
+      green17,
+      green18,
+      green19,
+      green20,
+      green21,
+      green22,
+      green23,
+      green24,
+      green25,
+    ],
+    },
+    "Beauty store":{
+      name:'Beauty store',
+      translationKey: "beauty-store",
+      images:[bea1, bea2, bea3, bea4, bea5],
+    },
+    "Apartment interior": {
+      name:'Apartment interior',
+      translationKey: "apartment-interior",
+      images:[fl1, fl2, fl3, fl4, fl5,fl6,fl7,fl8],
+    },
+    "Restaurant in Honfleur. France":{
+      name:'Restaurant in Honfleur. France',
+      translationKey: "restaurant-in-honfleur-france",
+      images:[re1, re2, re3, re4, re5],
+    } 
+  };
+
+  const currentProject = Object.keys(projects)[selectedTabIndex];
+  const currentProjectData = projects[currentProject];
 
   return (
     <div className="m-8" id="projects">
       <Tabs value={selectedTabIndex} onChange={handleTabChange}>
         <TabsHeader className="flex-wrap justify-center overflow-x-auto">
-          {Object.keys(imagesByProject).map((project, index) => (
+          {Object.keys(projects).map((project, index) => (
             <Tab
               key={index}
               value={index}
@@ -258,7 +306,7 @@ const OurWork = () => {
               }`}
               onClick={() => handleTabChange(index)}
             >
-              {t(project)}
+              {t(projects[project].translationKey)}
             </Tab>
           ))}
         </TabsHeader>
@@ -268,7 +316,7 @@ const OurWork = () => {
             value={selectedTabIndex}
             className="grid grid-cols-1 gap-4 md:grid-cols-3"
           >
-            {imagesByProject[currentProject].map((imageLink, imgIndex) => (
+            {currentProjectData.images.map((imageLink, imgIndex) => (
               <LazyLoad key={imgIndex} height={200} offset={100}>
                 <div className="flex justify-center items-center relative">
                   {loading ? (
