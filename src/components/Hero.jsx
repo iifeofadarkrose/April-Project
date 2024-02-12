@@ -1,7 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import bg1 from "../assets/hero1.png";
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   const scrollToBottom = () => {
     scroll.scrollToBottom();
   };
@@ -9,12 +12,12 @@ const Hero = () => {
   return (
     <div className="m-8 flex justify-start md:justify-center md:m-16 mb-20">
       <div className="flex flex-wrap max-h-[100px] lg:max-w-[400px] mr-[20px] ">
-        <p className="w-full  color-[#202020] text-4xl md:text-6xl lg:text-7xl">
-          we make
+        <p className="w-full color-[#202020] text-4xl md:text-5xl lg:text-6xl">
+          {t("we_make")}
         </p>
         <div className="flex flex-wrap">
           <span className="uppercase text-[#9E8372] text-5xl md:text-8xl lg:text-11xl">
-            design
+            {t("design")}
           </span>
           <ScrollLink
             to="contact"
@@ -23,7 +26,7 @@ const Hero = () => {
             className="bg-[#5F5F5F] w-fit text-white text-xl px-[5%] py-[1%] md:text-2xl lg:text-3xl cursor-pointer"
             onClick={scrollToBottom}
           >
-            Contact us
+            {t("contact_us_button")}
           </ScrollLink>
         </div>
       </div>

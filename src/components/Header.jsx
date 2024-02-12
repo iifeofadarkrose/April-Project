@@ -10,13 +10,15 @@ const Header = () => {
     defaultNS: "translation",
     resources: {
       en: { translation: en },
-      fr: { translation: fr }
-    }
+      fr: { translation: fr },
+    },
   });
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState(localStorage.getItem('selectedLanguage') || "Eng");
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    localStorage.getItem("selectedLanguage") || "En"
+  );
 
   useEffect(() => {
     i18n.changeLanguage(selectedLanguage.toLowerCase());
@@ -33,7 +35,7 @@ const Header = () => {
   const selectLanguage = (language) => {
     setSelectedLanguage(language);
     setIsOpen(false);
-    localStorage.setItem('selectedLanguage', language);
+    localStorage.setItem("selectedLanguage", language);
   };
 
   return (
@@ -48,6 +50,7 @@ const Header = () => {
         >
           <div>{t("title")}</div>
         </Link>
+
         <div className="hidden md:flex gap-8 md:text-[16px] lg:text-2xl">
           <Link to="/" className="block" onClick={toggleMenu}>
             {t("home")}
@@ -72,15 +75,16 @@ const Header = () => {
             {t("contact_us")}
           </ScrollLink>
         </div>
-        <div className="md:flex items-center">
-          <div className="relative ml-8">
+
+        <div className="flex md:flex items-center">
+          <div className="mx-2 md:mx-8">
             <button
               onClick={toggleDropdown}
-              className="px-4 py-2 text-gray-700 bg-gray-200 rounded-md focus:outline-none focus:bg-gray-300"
+              className="px-2 py-2 text-gray-700 bg-gray-200 border border-gray-400 rounded-md focus:outline-none focus:bg-gray-300"
             >
               {selectedLanguage}
               <svg
-                className="w-4 h-4 ml-2"
+                className="w-4 h-4 ml-2 "
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -93,23 +97,24 @@ const Header = () => {
                 />
               </svg>
             </button>
-            {isOpen && (
-              <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg">
+             {isOpen && (
+              <div className="absolute mt-2 w-12 bg-white border border-gray-400 rounded-md shadow-lg">
                 <button
-                  onClick={() => selectLanguage("Eng")}
-                  className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-100 focus:outline-none"
+                  onClick={() => selectLanguage("En")}
+                  className="block w-full px-4 py-2 text-gray-800 text-center hover:bg-gray-100 focus:outline-none"
                 >
-                  Eng
+                  En
                 </button>
                 <button
                   onClick={() => selectLanguage("Fr")}
-                  className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-100 focus:outline-none"
+                  className="block w-full px-4 py-2 text-center text-gray-800 hover:bg-gray-100 focus:outline-none"
                 >
                   Fr
                 </button>
               </div>
             )}
           </div>
+
           <svg
             onClick={toggleMenu}
             xmlns="http://www.w3.org/2000/svg"
@@ -134,8 +139,9 @@ const Header = () => {
               />
             )}
           </svg>
+
           {isMenuOpen && (
-            <div className="absolute bg-white py-2 px-4 border border-solid border-gray-300 shadow-md rounded-lg z-50 top-full mt-2 right-0">
+            <div className="absolute bg-white py-2 px-4 border border-solid border-gray-300 shadow-md rounded-lg z-50 mt-44 right-8">
               <Link to="/" className="block" onClick={toggleMenu}>
                 {t("home")}
               </Link>

@@ -1,7 +1,33 @@
-{
-    "title": "Atelier April Design",
-    "home": "Accueil",
-    "our_work": "Notre Travail",
-    "about_us": "À Propos",
-    "contact_us": "Contactez Nous"
-  }
+{  
+"title": "Atelier April Design",
+"home": "Accueil",
+"our_work": "Notre Travail",
+"about_us": "À Propos",
+"contact_us": "Contactez Nous",
+"about_us_description": "Nous fusionnons parfaitement l'esthétique et la fonctionnalité dans la conception d'espaces résidentiels et publics. Des extérieurs frappants aux reconstructions méticuleuses, nous nous spécialisons dans la création d'environnements captivants dans des budgets spécifiés. Faisons vivre vos visions avec élégance et finesse.",
+"select_language": "Sélectionnez la langue",
+"english": "Anglais",
+"french": "Français",
+"we_make": "Nous fabriquons",
+"design": "le design",
+"contact_us_button": "Contactez-nous",
+"first_name_placeholder": "Entrez votre prénom",
+"last_name_placeholder": "Entrez votre nom de famille",
+"email_placeholder": "Entrez votre adresse e-mail",
+"phone_number_placeholder": "Entrez votre numéro de téléphone",
+"message_placeholder": "Entrez votre message",
+"submit_button_text": "Parlons",
+"alegro-paris": "Alegro Paris",
+"office-project": "Projet de Bureau",
+"clothes-boutique": "Boutique de Vêtements",
+"coat-store": "Magasin de Manteaux",
+"house-ablon": "Maison Ablon",
+"interier-ablon": "Intérieur Ablon",
+"interier-honfleur": "Intérieur Honfleur",
+"hanover-germany": "Hanovre, Allemagne",
+"office-green-farm-cosmetic": "Bureau Green Farm Cosmetic",
+"beauty-store": "Magasin de Beauté",
+"apartment-interior": "Intérieur d'Appartement",
+"restaurant-in-honfleur-france": "Restaurant à Honfleur, France"
+
+}

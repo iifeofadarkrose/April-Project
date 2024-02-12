@@ -137,6 +137,7 @@ import re3 from "../assets/images/Re2/re3-min.jpg";
 import re4 from "../assets/images/Re2/re4-min.jpg";
 import re5 from "../assets/images/Re2/re5-min.jpg";
 
+import { useTranslation } from "react-i18next";
 
 const imagesByProject = {
   "Alegro-Paris": [
@@ -223,7 +224,10 @@ const imagesByProject = {
   "Restaurant in Honfleur. France": [re1, re2, re3, re4, re5],
 };
 
+
 const OurWork = () => {
+  const { t } = useTranslation("translation");
+
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
   const [loading, setLoading] = useState(true);
 
@@ -254,7 +258,7 @@ const OurWork = () => {
               }`}
               onClick={() => handleTabChange(index)}
             >
-              {project}
+              {t(project)}
             </Tab>
           ))}
         </TabsHeader>

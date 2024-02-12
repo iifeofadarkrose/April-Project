@@ -1,9 +1,13 @@
+import { useTranslation } from "react-i18next";
+
 export default function ContactUs() {
+  const { t } = useTranslation();
+
   return (
     <div id="contact">
       <div className="mx-auto max-w-2xl text-center">
-        <h1 className="uppercase text-3xl mt-10 md:text-5xl">
-          Contact <span className="uppercase text-[#9E8372]">Us</span>
+        <h1 className="uppercase text-[#9E8372] text-3xl mt-10 md:text-5xl">
+          {t("contact_us")}
         </h1>
       </div>
       <form
@@ -23,7 +27,7 @@ export default function ContactUs() {
                 name="first-name"
                 id="first-name"
                 autoComplete="given-name"
-                placeholder="Enter your first name"
+                placeholder={t("first_name_placeholder")}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-[#5F5F5F] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#9E8372] sm:text-sm sm:leading-6"
               />
             </div>
@@ -39,7 +43,7 @@ export default function ContactUs() {
                 name="last-name"
                 id="last-name"
                 autoComplete="family-name"
-                placeholder="Enter your last name"
+                placeholder={t("last_name_placeholder")}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-[#5F5F5F] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#9E8372] sm:text-sm sm:leading-6"
               />
             </div>
@@ -56,7 +60,7 @@ export default function ContactUs() {
                 name="email"
                 id="email"
                 autoComplete="email"
-                placeholder="Enter your email address"
+                placeholder={t("email_placeholder")}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-[#5F5F5F] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#9E8372] sm:text-sm sm:leading-6"
               />
             </div>
@@ -72,7 +76,7 @@ export default function ContactUs() {
                 name="phone-number"
                 id="phone-number"
                 autoComplete="tel"
-                placeholder="Enter your phone number"
+                placeholder={t("phone_number_placeholder")}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-[#5F5F5F] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#9E8372] sm:text-sm sm:leading-6"
               />
             </div>
@@ -87,7 +91,7 @@ export default function ContactUs() {
                 name="message"
                 id="message"
                 rows={4}
-                placeholder="Enter your message"
+                placeholder={t("message_placeholder")}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-[#5F5F5F] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#9E8372] sm:text-sm sm:leading-6"
                 defaultValue={""}
               />
@@ -99,7 +103,7 @@ export default function ContactUs() {
             type="submit"
             className="block w-full rounded-md bg-[#5F5F5F] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#9E8372] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9E8372]"
           >
-            Lets talk
+            {t("submit_button_text")}
           </button>
         </div>
       </form>
