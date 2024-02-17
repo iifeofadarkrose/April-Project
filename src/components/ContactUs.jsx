@@ -11,9 +11,10 @@ export default function ContactUs() {
         </h1>
       </div>
       <form
-        action="https://getform.io/f/c8027841-9a14-4928-9762-595b8c68913b" method="POST"
+        action="https://getform.io/f/c8027841-9a14-4928-9762-595b8c68913b" 
+        method="POST"
         encType="multipart/form-data"
-        className="mx-auto mt-4 max-w-xl lg:max-w-4xl sm:mt-10 bg-[#D9D9D9] p-10 mb-[2%]"
+        className="mx-auto mt-4 max-w-xl lg:max-w-4xl bg-[#D9D9D9] p-10 mb-[2%]"
       >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
@@ -29,6 +30,7 @@ export default function ContactUs() {
                 autoComplete="given-name"
                 placeholder={t("first_name_placeholder")}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-[#5F5F5F] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#9E8372] sm:text-sm sm:leading-6"
+                required // Добавлен атрибут required
               />
             </div>
           </div>
@@ -62,6 +64,7 @@ export default function ContactUs() {
                 autoComplete="email"
                 placeholder={t("email_placeholder")}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-[#5F5F5F] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#9E8372] sm:text-sm sm:leading-6"
+                required // Добавлен атрибут required
               />
             </div>
           </div>
