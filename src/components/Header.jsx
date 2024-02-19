@@ -52,7 +52,7 @@ const Header = () => {
         </Link>
 
         <div className="hidden md:flex gap-8 md:text-[16px] lg:text-2xl">
-          <Link to="/" className="block" onClick={toggleMenu}>
+          <Link to="/" className="block">
             {t("home")}
           </Link>
           <Link to="/projects">{t("our_work")}</Link>
@@ -61,7 +61,7 @@ const Header = () => {
             smooth={true}
             duration={500}
             className="block cursor-pointer"
-            onClick={toggleMenu}
+           
           >
             {t("about_us")}
           </ScrollLink>
@@ -70,21 +70,21 @@ const Header = () => {
             smooth={true}
             duration={500}
             className="block cursor-pointer"
-            onClick={toggleMenu}
+         
           >
             {t("contact_us")}
           </ScrollLink>
         </div>
 
         <div className="flex md:flex items-center">
-          <div className="mx-2 md:mx-8">
+          <div className="mx-2 md:mx-8 relative">
             <button
               onClick={toggleDropdown}
-              className="px-2 py-2 text-gray-700 bg-gray-200 border border-gray-400 rounded-md focus:outline-none focus:bg-gray-300"
+              className="px-2 py-2 text-gray-700 bg-gray-200 border border-gray-400 rounded-md focus:outline-none focus:bg-gray-300 flex items-center"
             >
               {selectedLanguage}
               <svg
-                className="w-4 h-4 ml-2 "
+                className="w-4 h-4 ml-2 mt-1 md:mt-0"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -97,7 +97,7 @@ const Header = () => {
                 />
               </svg>
             </button>
-             {isOpen && (
+            {isOpen && (
               <div className="absolute mt-2 w-12 bg-white border border-gray-400 rounded-md shadow-lg">
                 <button
                   onClick={() => selectLanguage("En")}

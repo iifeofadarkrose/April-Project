@@ -1,11 +1,5 @@
-import { useState, useEffect } from "react";
-import {
-  Tabs,
-  TabsHeader,
-  TabsBody,
-  Tab,
-  TabPanel,
-} from "@material-tailwind/react";
+import { useState } from "react";
+import { Tabs, TabsBody, TabPanel } from "@material-tailwind/react";
 import LazyLoad from "react-lazyload";
 import { BallTriangle } from "react-loader-spinner";
 
@@ -57,10 +51,6 @@ import in7 from "../assets/images/IntAblon/in7-min.png";
 import in8 from "../assets/images/IntAblon/in8-min.png";
 import in9 from "../assets/images/IntAblon/in9-min.png";
 
-// import hon1 from '../assets/images/Honf/hon1-min.png';
-// import hon2 from '../assets/images/Honf/hon2-min.png';
-// import hon3 from '../assets/images/Honf/hon3-min.png';
-// import hon4 from '../assets/images/Honf/hon4-min.png';
 import hon5 from "../assets/images/Honf/hon5-min.png";
 import hon6 from "../assets/images/Honf/hon6-min.png";
 import hon7 from "../assets/images/Honf/hon7-min.png";
@@ -137,31 +127,12 @@ import re3 from "../assets/images/Re2/re3-min.jpg";
 import re4 from "../assets/images/Re2/re4-min.jpg";
 import re5 from "../assets/images/Re2/re5-min.jpg";
 
-import { useTranslation } from "react-i18next";
-
 const OurWork = () => {
-  const { t } = useTranslation("translation");
-
-  const [selectedTabIndex, setSelectedTabIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(true);
-    const timeout = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-    return () => clearTimeout(timeout);
-  }, [selectedTabIndex]);
-
-  const handleTabChange = (index) => {
-    setSelectedTabIndex(index);
-  };
-
-  const projects = {
-    "Alegro-Paris": {
+  const projects = [
+    {
       name: "Alegro Paris",
-      translationKey: "alegro-paris",
       images: [
+        alegro12,
         alegro1,
         alegro2,
         alegro4,
@@ -172,52 +143,41 @@ const OurWork = () => {
         alegro9,
         alegro10,
         alegro11,
-        alegro12,
       ],
+      translationKey: "alegro-paris",
     },
-    "Office-Project": {
-      name: "Office Project",
-      translationKey: "office-project",
-      images: [office1, office2, office3, office4, office5, office6],
-    },
-    "Clothes-boutique": {
-      name: "Clothes boutique",
-      translationKey: "clothes-boutique",
-      images: [
-        clothes1,
-        clothes2,
-        clothes3,
-        clothes5,
-        clothes7,
-        clothes8,
-        clothes6,
-      ],
-    },
-
-    "Coat-store": {
-      name: "Coat-store",
-      translationKey: "coat-store",
-      images: [coats1, coats3, coats4, coats5, coats6],
-    },
-
-    "House-Ablon": {
-      name: "House-Ablon",
-      translationKey: "house-ablon",
+    {
+      name: "House Ablon",
       images: [house1, house2, house3, house4],
+      translationKey: "house-ablon",
     },
-    "Interier-Ablon": {
-      name: "Interier-Ablon",
-      translationKey: "interier-ablon",
+    {
+      name: "Interior Ablon",
       images: [in1, in2, in3, in4, in5, in6, in7, in8, in9],
+      translationKey: "interior-ablon",
     },
-    "Interier-Honfleur": {
-      name: "Interier-Honfleur",
-      translationKey: "interier-honfleur",
+    {
+      name: "Honfleur",
       images: [hon5, hon6, hon7, hon8],
+      translationKey: "honfleur",
     },
-    "Hanover-Germany": {
-      name: "Hanover-Germany",
-      translationKey: "hanover-germany",
+    {
+      name: "Residential",
+      images: [re1, re2, re3, re4, re5],
+      translationKey: "residential",
+    },
+    {
+      name: "Flat Design",
+      images: [fl1, fl2, fl3, fl4, fl5, fl6, fl7, fl8],
+      translationKey: "flat-design",
+    },
+    {
+      name: "Office Project",
+      images: [office1, office2, office3, office4, office5, office6],
+      translationKey: "office-project",
+    },
+    {
+      name: "German House",
       images: [
         ger1,
         ger2,
@@ -243,11 +203,31 @@ const OurWork = () => {
         ger22,
         ger23,
       ],
+      translationKey: "german-house",
     },
-    "Office Green Farm Cosmetic": {
-      name: "Office Green Farm Cosmetic",
-      translationKey: "office-green-farm-cosmetic",
+    {
+      name: "Clothes Boutique",
       images: [
+        clothes1,
+        clothes2,
+        clothes3,
+        clothes5,
+        clothes6,
+        clothes7,
+        clothes8,
+      ],
+      translationKey: "clothes-boutique",
+    },
+    {
+      name: "Coat Store",
+      images: [coats1, coats3, coats4, coats5, coats6],
+      translationKey: "coat-store",
+    },
+
+    {
+      name: "Green Home",
+      images: [
+        green24,
         green1,
         green2,
         green3,
@@ -271,56 +251,86 @@ const OurWork = () => {
         green21,
         green22,
         green23,
-        green24,
+       
         green25,
       ],
+      translationKey: "green-home",
     },
-    "Beauty store": {
-      name: "Beauty store",
-      translationKey: "beauty-store",
+    {
+      name: "Beach House",
       images: [bea1, bea2, bea3, bea4, bea5],
+      translationKey: "beach-house",
     },
-    "Apartment interior": {
-      name: "Apartment interior",
-      translationKey: "apartment-interior",
-      images: [fl1, fl2, fl3, fl4, fl5, fl6, fl7, fl8],
-    },
-    "Restaurant Honfleur. France": {
-      name: "Restaurant Honfleur. France",
-      translationKey: "restaurant-in-honfleur-france",
-      images: [re1, re2, re3, re4, re5],
-    },
+  ];
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const handleImageClick = (project) => {
+    setSelectedProject(project);
   };
 
-  const currentProject = Object.keys(projects)[selectedTabIndex];
-  const currentProjectData = projects[currentProject];
+  const handleBackButtonClick = () => {
+    setSelectedProject(null);
+  };
 
   return (
     <div className="m-8" id="projects">
-      <Tabs value={selectedTabIndex} onChange={handleTabChange}>
-        <TabsHeader className="flex-wrap justify-center overflow-x-auto">
-          {Object.keys(projects).map((project, index) => (
-            <Tab
-              key={index}
-              value={index}
-              className={`m-1 w-[70px] h-[60px] md:w-[180px] md:h-[80px] text-[12px] md:text-[22px] lg:w-[300px] lg:h-[80px] lg:text-[28px] rounded-lg p-1 border-[#9E8372] border-[2px]  ${
-                selectedTabIndex === index ? "bg-[#5F5F5F] text-white" : ""
-              }`}
-              onClick={() => handleTabChange(index)}
-            >
-              {t(projects[project].translationKey)}
-            </Tab>
-          ))}
-        </TabsHeader>
-
-        <TabsBody className="grid grid-cols-1 gap-4">
-          <TabPanel
-            value={selectedTabIndex}
-            className="grid grid-cols-1 gap-4 md:grid-cols-3"
-          >
-            {currentProjectData.images.map((imageLink, imgIndex) => (
-              <LazyLoad key={imgIndex} height={200} offset={100}>
-                <div className="flex justify-center items-center relative">
+      {!selectedProject ? (
+        <Tabs value={0}>
+          <TabsBody className="grid grid-cols-1 gap-4">
+            <TabPanel value={0} className="grid grid-cols-1 gap-4 md:grid-cols-3">
+              {projects.map((project, index) => (
+                <LazyLoad key={index} height={200} offset={100}>
+                  <div className="flex flex-col items-center relative">
+                    {loading ? (
+                      <div
+                        className="loader-overlay"
+                        style={{
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          width: "100%",
+                          height: "100%",
+                          backgroundColor: "rgba(0, 0, 0, 0.5)",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          zIndex: 9999,
+                        }}
+                      >
+                        <BallTriangle
+                          height={30}
+                          width={30}
+                          radius={5}
+                          color="#ffffff"
+                          ariaLabel="ball-triangle-loading"
+                        />
+                      </div>
+                    ) : null}
+                    <img
+                      onLoad={() => setLoading(false)}
+                      className="h-[200px] w-[320px] md:w-[600px] md:h-[200px] lg:h-[400px] rounded-lg object-cover object-center cursor-pointer hover:border-2 hover:border-gray-700"
+                      src={project.images[0]}
+                      alt={project.name}
+                      loading="lazy"
+                      onClick={() => handleImageClick(project)}
+                    />
+                    <div className="bg-black bg-opacity-50 md:text-2xl text-white absolute bottom-0 left-0 right-0 py-1 text-center">
+                      {project.name}
+                    </div>
+                  </div>
+                </LazyLoad>
+              ))}
+            </TabPanel>
+          </TabsBody>
+        </Tabs>
+      ) : (
+        <div>
+          <button onClick={handleBackButtonClick} className="bg-[#D9D9D9] text-black px-4 py-2 rounded-lg mb-4 border border-sm border-black">Back</button>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {selectedProject.images.map((image, index) => (
+              <LazyLoad key={index} height={200} offset={100}>
+                <div className="flex flex-col items-center relative">
                   {loading ? (
                     <div
                       className="loader-overlay"
@@ -348,17 +358,18 @@ const OurWork = () => {
                   ) : null}
                   <img
                     onLoad={() => setLoading(false)}
-                    className="h-[200px] w-[320px] md:w-[600px] md:h-[200px] lg:h-[400px] rounded-lg object-cover object-center"
-                    src={imageLink}
-                    alt={`image-${imgIndex}`}
+                    className="h-[200px] w-[320px] md:w-[600px] md:h-[200px] lg:h-[400px] rounded-lg object-cover object-center cursor-pointer hover:border-2 hover:border-gray-700"
+                    src={image}
+                    alt={`image-${index}`}
                     loading="lazy"
+                    onClick={() => handleImageClick(selectedProject)}
                   />
                 </div>
               </LazyLoad>
             ))}
-          </TabPanel>
-        </TabsBody>
-      </Tabs>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
