@@ -127,10 +127,64 @@ import re3 from "../assets/images/Re2/re3-min.jpg";
 import re4 from "../assets/images/Re2/re4-min.jpg";
 import re5 from "../assets/images/Re2/re5-min.jpg";
 
+import cha1 from "../assets/images/Chal/cha1.jpg";
+import cha2 from "../assets/images/Chal/cha2.jpg";
+import cha3 from "../assets/images/Chal/cha3.jpg";
+import cha4 from "../assets/images/Chal/cha4.jpg";
+import cha5 from "../assets/images/Chal/cha5.jpg";
+import cha6 from "../assets/images/Chal/cha6.jpg";
+import cha7 from "../assets/images/Chal/cha7.jpg";
+
+import cac1 from "../assets/images/Cact/cac1.jpg";
+import cac2 from "../assets/images/Cact/cac2.jpg";
+import cac3 from "../assets/images/Cact/cac3.jpg";
+import cac4 from "../assets/images/Cact/cac4.jpg";
+
+import inter1 from "../assets/images/Inter22/inter1.jpg";
+import inter2 from "../assets/images/Inter22/inter2.jpg";
+import inter3 from "../assets/images/Inter22/inter3.jpg";
+import inter4 from "../assets/images/Inter22/inter4.jpg";
+import inter5 from "../assets/images/Inter22/inter5.jpg";
+import inter6 from "../assets/images/Inter22/inter6.jpg";
+import inter7 from "../assets/images/Inter22/inter7.jpg";
+import inter8 from "../assets/images/Inter22/inter8.jpg";
+import inter9 from "../assets/images/Inter22/inter9.jpg";
+import inter10 from "../assets/images/Inter22/inter10.jpg";
+import inter11 from "../assets/images/Inter22/inter11.jpg";
+import inter12 from "../assets/images/Inter22/inter12.jpg";
+
 const OurWork = () => {
   const projects = [
     {
-      name: "Alegro Paris",
+      name: "Interior of the apartment. Photo 2022",
+      images: [cha1, cha2, cha3, cha4, cha5, cha6, cha7],
+      translationKey: "Chal",
+    },
+    {
+      name: "Cactus branch in Paris. Photo 2024",
+      images: [cac1, cac2, cac3, cac4],
+      translationKey: "Inter22",
+    },
+    {
+      name: "Interior design. Photo 2022",
+      images: [
+        inter1,
+        inter2,
+        inter3,
+        inter4,
+        inter5,
+        inter6,
+        inter7,
+        inter8,
+        inter9,
+        inter10,
+        inter11,
+        inter12,
+      ],
+      translationKey: "Inter22",
+    },
+    {
+      name: "Interior design for restaurant Allegro. Paris. 2023",
       images: [
         alegro12,
         alegro1,
@@ -162,7 +216,7 @@ const OurWork = () => {
       translationKey: "honfleur",
     },
     {
-      name: "Residential",
+      name: "Interior design for restaurant in Honfleur. France. 2023",
       images: [re1, re2, re3, re4, re5],
       translationKey: "residential",
     },
@@ -251,7 +305,7 @@ const OurWork = () => {
         green21,
         green22,
         green23,
-       
+
         green25,
       ],
       translationKey: "green-home",
@@ -278,7 +332,10 @@ const OurWork = () => {
       {!selectedProject ? (
         <Tabs value={0}>
           <TabsBody className="grid grid-cols-1 gap-4">
-            <TabPanel value={0} className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            <TabPanel
+              value={0}
+              className="grid grid-cols-1 gap-4 md:grid-cols-3"
+            >
               {projects.map((project, index) => (
                 <LazyLoad key={index} height={200} offset={100}>
                   <div className="flex flex-col items-center relative">
@@ -326,7 +383,12 @@ const OurWork = () => {
         </Tabs>
       ) : (
         <div>
-          <button onClick={handleBackButtonClick} className="bg-[#D9D9D9] text-black px-4 py-2 rounded-lg mb-4 border border-sm border-black">Back</button>
+          <button
+            onClick={handleBackButtonClick}
+            className="bg-[#D9D9D9] text-black px-4 py-2 rounded-lg mb-4 border border-sm border-black"
+          >
+            Back
+          </button>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {selectedProject.images.map((image, index) => (
               <LazyLoad key={index} height={200} offset={100}>

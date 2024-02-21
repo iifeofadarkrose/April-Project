@@ -3,10 +3,10 @@ import { useTranslation } from "react-i18next";
 export default function ContactUs() {
   const { t } = useTranslation();
 
-  return (
-    <div id="contact">
+  return ( 
+    <div id="contact" className="md:mt-24">
       <div className="mx-auto max-w-2xl text-center">
-        <h1 className="uppercase text-[#9E8372] text-3xl mt-10 md:text-5xl">
+        <h1 className="uppercase text-[#9E8372] text-3xl mt-10 md:text-6xl">
           {t("contact_us")}
         </h1>
       </div>
@@ -14,7 +14,7 @@ export default function ContactUs() {
         action="https://getform.io/f/c8027841-9a14-4928-9762-595b8c68913b" 
         method="POST"
         encType="multipart/form-data"
-        className="mx-auto mt-4 max-w-xl lg:max-w-4xl bg-[#D9D9D9] p-10 mb-[2%]"
+        className="mx-auto mt-4 max-w-xl lg:max-w-4xl shadow-lg ring-2 ring-inset ring-gray-300 focus:ring-2 p-10 mb-[2%]"
       >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>

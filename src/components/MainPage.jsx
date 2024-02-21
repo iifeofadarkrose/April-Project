@@ -1,5 +1,5 @@
 import AboutUs from "./AboutUs";
-// import Awards from './Awards';
+import Awards from './Awards';
 import ContactUs from "./ContactUs";
 import Header from "./Header";
 import Hero from "./Hero";
@@ -10,7 +10,7 @@ const MainPage = () => {
       <Header />
       <Hero />
       <AboutUs />
-      {/* <Awards/> */}
+      <Awards/>
       <ContactUs />
     </div>
   );
