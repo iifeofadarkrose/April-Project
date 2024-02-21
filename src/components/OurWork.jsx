@@ -153,7 +153,40 @@ import inter10 from "../assets/images/Inter22/inter10.jpg";
 import inter11 from "../assets/images/Inter22/inter11.jpg";
 import inter12 from "../assets/images/Inter22/inter12.jpg";
 
+import wh1 from '../assets/images/wh/wh1.jpg'
+import wh2 from '../assets/images/wh/wh2.jpg'
+
+import pr1 from "../assets/images/Priv/pr1.jpg"
+import pr2 from "../assets/images/Priv/pr2.jpg"
+import pr3 from "../assets/images/Priv/pr3.jpg"
+import pr4 from "../assets/images/Priv/pr4.jpg"
+import pr5 from "../assets/images/Priv/pr5.jpg"
+import pr6 from "../assets/images/Priv/pr6.jpg"
+import pr7 from "../assets/images/Priv/pr7.jpg"
+import pr8 from "../assets/images/Priv/pr8.jpg"
+import pr9 from "../assets/images/Priv/pr9.jpg"
+import pr10 from "../assets/images/Priv/pr10.jpg"
+
+import pri1 from '../assets/images/pr2/pri1.png'
+import pri2 from '../assets/images/pr2/pri2.png'
+import pri3 from '../assets/images/pr2/pri3.png'
+import pri4 from '../assets/images/pr2/pri4.png'
+import pri5 from '../assets/images/pr2/pri5.png'
+import pri6 from '../assets/images/pr2/pri6.png'
+import pri7 from '../assets/images/pr2/pri7.png'
+import pri8 from '../assets/images/pr2/pri8.png'
+import pri9 from '../assets/images/pr2/pri9.png'
+import pri10 from '../assets/images/pr2/pri10.png'
+import pri11 from '../assets/images/pr2/pri11.png'
+import pri12 from '../assets/images/pr2/pri12.png'
+import pri13 from '../assets/images/pr2/pri13.png'
+import pri14 from '../assets/images/pr2/pri14.png'
+
+
+
+import { useTranslation } from "react-i18next";
 const OurWork = () => {
+  const { t } = useTranslation("translation");
   const projects = [
     {
       name: "Interior of the apartment. Photo 2022",
@@ -163,7 +196,7 @@ const OurWork = () => {
     {
       name: "Cactus branch in Paris. Photo 2024",
       images: [cac1, cac2, cac3, cac4],
-      translationKey: "Inter22",
+      translationKey: "Cactus",
     },
     {
       name: "Interior design. Photo 2022",
@@ -213,7 +246,7 @@ const OurWork = () => {
     {
       name: "Honfleur",
       images: [hon5, hon6, hon7, hon8],
-      translationKey: "honfleur",
+      translationKey: "interier-honfleur",
     },
     {
       name: "Interior design for restaurant in Honfleur. France. 2023",
@@ -257,7 +290,7 @@ const OurWork = () => {
         ger22,
         ger23,
       ],
-      translationKey: "german-house",
+      translationKey: "hanover-germany",
     },
     {
       name: "Clothes Boutique",
@@ -315,6 +348,21 @@ const OurWork = () => {
       images: [bea1, bea2, bea3, bea4, bea5],
       translationKey: "beach-house",
     },
+    {
+      name: "Exterior of the facade of a private house in Hanover. German. 2023",
+      images: [wh1, wh2],
+      translationKey: "wh",
+    },
+    {
+      name: "The interior of a private home. Sidney. Australi. 2022",
+      images: [pr1, pr2, pr3, pr4, pr5, pr6,pr7,pr8,pr9,pr10],
+      translationKey: "pr",
+    },
+    {
+      name: "The interior of a private home. 2022",
+      images: [pri1, pri2, pri3, pri4, pri5, pri6,pri7,pri8,pri9,pri10,pri11,pri12,pri13,pri14],
+      translationKey: "pri",
+    },
   ];
   const [selectedProject, setSelectedProject] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -336,48 +384,48 @@ const OurWork = () => {
               value={0}
               className="grid grid-cols-1 gap-4 md:grid-cols-3"
             >
-              {projects.map((project, index) => (
-                <LazyLoad key={index} height={200} offset={100}>
-                  <div className="flex flex-col items-center relative">
-                    {loading ? (
-                      <div
-                        className="loader-overlay"
-                        style={{
-                          position: "absolute",
-                          top: 0,
-                          left: 0,
-                          width: "100%",
-                          height: "100%",
-                          backgroundColor: "rgba(0, 0, 0, 0.5)",
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          zIndex: 9999,
-                        }}
-                      >
-                        <BallTriangle
-                          height={30}
-                          width={30}
-                          radius={5}
-                          color="#ffffff"
-                          ariaLabel="ball-triangle-loading"
-                        />
-                      </div>
-                    ) : null}
-                    <img
-                      onLoad={() => setLoading(false)}
-                      className="h-[200px] w-[320px] md:w-[600px] md:h-[200px] lg:h-[400px] rounded-lg object-cover object-center cursor-pointer hover:border-2 hover:border-gray-700"
-                      src={project.images[0]}
-                      alt={project.name}
-                      loading="lazy"
-                      onClick={() => handleImageClick(project)}
-                    />
-                    <div className="bg-black bg-opacity-50 md:text-2xl text-white absolute bottom-0 left-0 right-0 py-1 text-center">
-                      {project.name}
-                    </div>
-                  </div>
-                </LazyLoad>
-              ))}
+               {projects.map((project, index) => (
+        <LazyLoad key={index} height={200} offset={100}>
+          <div className="flex flex-col items-center relative">
+            {loading ? (
+              <div
+                className="loader-overlay"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "rgba(0, 0, 0, 0.5)",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  zIndex: 9999,
+                }}
+              >
+                <BallTriangle
+                  height={30}
+                  width={30}
+                  radius={5}
+                  color="#ffffff"
+                  ariaLabel="ball-triangle-loading"
+                />
+              </div>
+            ) : null}
+            <img
+              onLoad={() => setLoading(false)}
+              className="h-[200px] w-[320px] md:w-[600px] md:h-[200px] lg:h-[400px] rounded-lg object-cover object-center cursor-pointer hover:border-2 hover:border-gray-700"
+              src={project.images[0]}
+              alt={project.name}
+              loading="lazy"
+              onClick={() => handleImageClick(project)}
+            />
+            <div className="bg-black bg-opacity-50 md:text-2xl text-white absolute bottom-0 left-0 right-0 py-1 text-center">
+              {t(project.translationKey)}
+            </div>
+          </div>
+        </LazyLoad>
+      ))}
             </TabPanel>
           </TabsBody>
         </Tabs>
