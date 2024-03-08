@@ -1,6 +1,7 @@
 import AboutUs from "./AboutUs";
 import Awards from './Awards';
 import ContactUs from "./ContactUs";
+// import Footer from "./Footer";
 import Header from "./Header";
 import Hero from "./Hero";
 
@@ -12,6 +13,7 @@ const MainPage = () => {
       <AboutUs />
       <Awards/>
       <ContactUs />
+    
     </div>
   );
 };

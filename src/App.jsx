@@ -9,7 +9,6 @@ const Work = React.lazy(() => import("./components/OurWork.jsx"));
 const App = () => {
   return (
     <>
-      
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route

@@ -39,29 +39,30 @@ const Header = () => {
   };
 
   return (
-    <div className="">
-      <div className="flex justify-between lg:justify-center items-center m-8 md:mx-16">
+    <div className="sticky top-0 z-50 bg-white border-b-[1px] border-[#CACACA] ">
+      <div className="flex justify-between lg:justify-center items-center md:mx-10 p-4">
         <Link
           to="/"
           smooth={true}
           duration={500}
-          className="text-[20px] md:text-2xl lg:text-4xl lg:mr-[175px]"
+          className="text-[20px] md:text-xl lg:text-[30px] lg:mr-[175px] transition duration-300 ease-in-out hover:text-[#9E8372] transform hover:scale-105"
           onClick={() => scroll.scrollToTop()}
         >
           <div>{t("title")}</div>
         </Link>
 
-        <div className="hidden md:flex gap-8 md:text-[16px] lg:text-2xl">
-          <Link to="/" className="block">
+        <div className="hidden md:flex gap-8 md:text-[16px] lg:text-[20px] xl:text-[24px]">
+          <Link to="/" className="block transition duration-300 ease-in-out hover:text-[#9E8372] transform hover:scale-105">
             {t("home")}
           </Link>
-          <Link to="/projects">{t("our_work")}</Link>
+          <Link to="/projects" className="transition duration-300 ease-in-out hover:text-[#9E8372] transform hover:scale-105">
+            {t("our_work")}
+          </Link>
           <ScrollLink
             to="about"
             smooth={true}
             duration={500}
-            className="block cursor-pointer"
-           
+            className="block cursor-pointer transition duration-300 ease-in-out hover:text-[#9E8372] transform hover:scale-105"
           >
             {t("about_us")}
           </ScrollLink>
@@ -69,51 +70,50 @@ const Header = () => {
             to="contact"
             smooth={true}
             duration={500}
-            className="block cursor-pointer"
-         
+            className="block cursor-pointer transition duration-300 ease-in-out hover:text-[#9E8372] transform hover:scale-105"
           >
             {t("contact_us")}
           </ScrollLink>
         </div>
 
         <div className="flex md:flex items-center">
-        <div className="mx-2 md:mx-8 relative">
-  <button
-    onClick={toggleDropdown}
-    className="px-2 py-2 text-gray-700 bg-gray-200 border border-gray-400 rounded-md focus:outline-none focus:bg-gray-300 flex items-center"
-  >
-    {selectedLanguage}
-    <svg
-      className="w-4 h-4 ml-2 mt-1 md:mt-0"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path
-        fillRule="evenodd"
-        d="M10.293 13.707a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L10 11.586l3.293-3.293a1 1 0 1 1 1.414 1.414l-4 4z"
-        clipRule="evenodd"
-      />
-    </svg>
-  </button>
-  {isOpen && (
-    <div className="absolute mt-2 w-12 bg-white border border-gray-400 rounded-md shadow-lg z-10"> {/* Устанавливаем z-10 для блока */}
-      <button
-        onClick={() => selectLanguage("En")}
-        className="block w-full px-4 py-2 text-gray-800 text-center hover:bg-gray-100 focus:outline-none"
-      >
-        En
-      </button>
-      <button
-        onClick={() => selectLanguage("Fr")}
-        className="block w-full px-4 py-2 text-center text-gray-800 hover:bg-gray-100 focus:outline-none"
-      >
-        Fr
-      </button>
-    </div>
-  )}
-</div>
+          <div className="mx-2 md:mx-8 relative">
+            <button
+              onClick={toggleDropdown}
+              className="px-2 py-2 text-gray-700 bg-gray-200 border border-gray-400 rounded-md focus:outline-none focus:bg-gray-300 flex items-center"
+            >
+              {selectedLanguage}
+              <svg
+                className="w-4 h-4 ml-2 mt-1 md:mt-0"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10.293 13.707a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L10 11.586l3.293-3.293a1 1 0 1 1 1.414 1.414l-4 4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
+            {isOpen && (
+              <div className="absolute mt-2  w-12 bg-white border border-gray-400 rounded-md shadow-lg z-10">
+                <button
+                  onClick={() => selectLanguage("En")}
+                  className="block w-full px-4 py-2 text-gray-800 text-center hover:bg-gray-100 focus:outline-none"
+                >
+                  En
+                </button>
+                <button
+                  onClick={() => selectLanguage("Fr")}
+                  className="block w-full px-4 py-2 text-center text-gray-800 hover:bg-gray-100 focus:outline-none"
+                >
+                  Fr
+                </button>
+              </div>
+            )}
+          </div>
 
           <svg
             onClick={toggleMenu}

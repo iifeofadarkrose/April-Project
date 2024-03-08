@@ -2,6 +2,9 @@ import { useState } from "react";
 import { Tabs, TabsBody, TabPanel } from "@material-tailwind/react";
 import LazyLoad from "react-lazyload";
 import { BallTriangle } from "react-loader-spinner";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // Импорт изображений для каждого проекта
 import alegro1 from "../assets/images/Alegro/alegro1.jpg";
@@ -153,39 +156,85 @@ import inter10 from "../assets/images/Inter22/inter10.jpg";
 import inter11 from "../assets/images/Inter22/inter11.jpg";
 import inter12 from "../assets/images/Inter22/inter12.jpg";
 
-import wh1 from '../assets/images/wh/wh1.jpg'
-import wh2 from '../assets/images/wh/wh2.jpg'
+import wh1 from "../assets/images/wh/wh1.jpg";
+import wh2 from "../assets/images/wh/wh2.jpg";
 
-import pr1 from "../assets/images/Priv/pr1.jpg"
-import pr2 from "../assets/images/Priv/pr2.jpg"
-import pr3 from "../assets/images/Priv/pr3.jpg"
-import pr4 from "../assets/images/Priv/pr4.jpg"
-import pr5 from "../assets/images/Priv/pr5.jpg"
-import pr6 from "../assets/images/Priv/pr6.jpg"
-import pr7 from "../assets/images/Priv/pr7.jpg"
-import pr8 from "../assets/images/Priv/pr8.jpg"
-import pr9 from "../assets/images/Priv/pr9.jpg"
-import pr10 from "../assets/images/Priv/pr10.jpg"
+import pr1 from "../assets/images/Priv/pr1.jpg";
+import pr2 from "../assets/images/Priv/pr2.jpg";
+import pr3 from "../assets/images/Priv/pr3.jpg";
+import pr4 from "../assets/images/Priv/pr4.jpg";
+import pr5 from "../assets/images/Priv/pr5.jpg";
+import pr6 from "../assets/images/Priv/pr6.jpg";
+import pr7 from "../assets/images/Priv/pr7.jpg";
+import pr8 from "../assets/images/Priv/pr8.jpg";
+import pr9 from "../assets/images/Priv/pr9.jpg";
+import pr10 from "../assets/images/Priv/pr10.jpg";
 
-import pri1 from '../assets/images/pr2/pri1.png'
-import pri2 from '../assets/images/pr2/pri2.png'
-import pri3 from '../assets/images/pr2/pri3.png'
-import pri4 from '../assets/images/pr2/pri4.png'
-import pri5 from '../assets/images/pr2/pri5.png'
-import pri6 from '../assets/images/pr2/pri6.png'
-import pri7 from '../assets/images/pr2/pri7.png'
-import pri8 from '../assets/images/pr2/pri8.png'
-import pri9 from '../assets/images/pr2/pri9.png'
-import pri10 from '../assets/images/pr2/pri10.png'
-import pri11 from '../assets/images/pr2/pri11.png'
-import pri12 from '../assets/images/pr2/pri12.png'
-import pri13 from '../assets/images/pr2/pri13.png'
-import pri14 from '../assets/images/pr2/pri14.png'
+import pri1 from "../assets/images/pr2/pri1.png";
+import pri2 from "../assets/images/pr2/pri2.png";
+import pri3 from "../assets/images/pr2/pri3.png";
+import pri4 from "../assets/images/pr2/pri4.png";
+import pri5 from "../assets/images/pr2/pri5.png";
+import pri6 from "../assets/images/pr2/pri6.png";
+import pri7 from "../assets/images/pr2/pri7.png";
+import pri8 from "../assets/images/pr2/pri8.png";
+import pri9 from "../assets/images/pr2/pri9.png";
+import pri10 from "../assets/images/pr2/pri10.png";
+import pri11 from "../assets/images/pr2/pri11.png";
+import pri12 from "../assets/images/pr2/pri12.png";
+import pri13 from "../assets/images/pr2/pri13.png";
+import pri14 from "../assets/images/pr2/pri14.png";
 
+import mi1 from '../assets/images/michel/mi1.png'
+import mi2 from '../assets/images/michel/mi2.png'
+import mi3 from '../assets/images/michel/mi3.png'
+import mi4 from '../assets/images/michel/mi4.png'
+import mi5 from '../assets/images/michel/mi5.png'
+import mi6 from '../assets/images/michel/mi6.png'
+import mi7 from '../assets/images/michel/mi7.png'
+import mi8 from '../assets/images/michel/mi8.png'
+import mi9 from '../assets/images/michel/mi9.png'
+import mi10 from '../assets/images/michel/mi10.png'
+import mi11 from '../assets/images/michel/mi11.png'
+import mi12 from '../assets/images/michel/mi12.png'
+import mi13 from '../assets/images/michel/mi13.png'
+import mi14 from '../assets/images/michel/mi14.png'
+import mi15 from '../assets/images/michel/mi15.png'
+import mi16 from '../assets/images/michel/mi16.png'
+import mi17 from '../assets/images/michel/mi17.png'
 
 
 import { useTranslation } from "react-i18next";
 const OurWork = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const openModal = (image) => {
+    setSelectedImage(image);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    setShowModal(false);
+  };
+
+  const handleClickOutside = (event) => {
+    if (event.target === event.currentTarget) {
+      closeModal();
+    }
+  };
+
+  const handleImageClick = (project) => {
+    setSelectedProject(project);
+  };
+
+  const handleBackButtonClick = () => {
+    setSelectedProject(null);
+  };
+
   const { t } = useTranslation("translation");
   const projects = [
     {
@@ -237,6 +286,7 @@ const OurWork = () => {
       name: "House Ablon",
       images: [house1, house2, house3, house4],
       translationKey: "house-ablon",
+      additionalImages:[mi1,mi2,mi3,mi4,mi5,mi6,mi7,mi8,mi9,mi10,mi11,mi12,mi13,mi14,mi15,mi16,mi17]
     },
     {
       name: "Interior Ablon",
@@ -355,25 +405,30 @@ const OurWork = () => {
     },
     {
       name: "The interior of a private home. Sidney. Australi. 2022",
-      images: [pr1, pr2, pr3, pr4, pr5, pr6,pr7,pr8,pr9,pr10],
+      images: [pr1, pr2, pr3, pr4, pr5, pr6, pr7, pr8, pr9, pr10],
       translationKey: "pr",
     },
     {
       name: "The interior of a private home. 2022",
-      images: [pri1, pri2, pri3, pri4, pri5, pri6,pri7,pri8,pri9,pri10,pri11,pri12,pri13,pri14],
+      images: [
+        pri1,
+        pri2,
+        pri3,
+        pri4,
+        pri5,
+        pri6,
+        pri7,
+        pri8,
+        pri9,
+        pri10,
+        pri11,
+        pri12,
+        pri13,
+        pri14,
+      ],
       translationKey: "pri",
     },
   ];
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  const handleImageClick = (project) => {
-    setSelectedProject(project);
-  };
-
-  const handleBackButtonClick = () => {
-    setSelectedProject(null);
-  };
 
   return (
     <div className="m-8" id="projects">
@@ -384,48 +439,48 @@ const OurWork = () => {
               value={0}
               className="grid grid-cols-1 gap-4 md:grid-cols-3"
             >
-               {projects.map((project, index) => (
-        <LazyLoad key={index} height={200} offset={100}>
-          <div className="flex flex-col items-center relative">
-            {loading ? (
-              <div
-                className="loader-overlay"
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                  backgroundColor: "rgba(0, 0, 0, 0.5)",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  zIndex: 9999,
-                }}
-              >
-                <BallTriangle
-                  height={30}
-                  width={30}
-                  radius={5}
-                  color="#ffffff"
-                  ariaLabel="ball-triangle-loading"
-                />
-              </div>
-            ) : null}
-            <img
-              onLoad={() => setLoading(false)}
-              className="h-[200px] w-[320px] md:w-[600px] md:h-[200px] lg:h-[400px] rounded-lg object-cover object-center cursor-pointer hover:border-2 hover:border-gray-700"
-              src={project.images[0]}
-              alt={project.name}
-              loading="lazy"
-              onClick={() => handleImageClick(project)}
-            />
-            <div className="bg-black bg-opacity-50 md:text-2xl text-white absolute bottom-0 left-0 right-0 py-1 text-center">
-              {t(project.translationKey)}
-            </div>
-          </div>
-        </LazyLoad>
-      ))}
+              {projects.map((project, index) => (
+                <LazyLoad key={index} height={200} offset={100}>
+                  <div className="flex flex-col items-center relative">
+                    {loading ? (
+                      <div
+                        className="loader-overlay"
+                        style={{
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          width: "100%",
+                          height: "100%",
+                          backgroundColor: "rgba(0, 0, 0, 0.5)",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          zIndex: 9999,
+                        }}
+                      >
+                        <BallTriangle
+                          height={30}
+                          width={30}
+                          radius={5}
+                          color="#ffffff"
+                          ariaLabel="ball-triangle-loading"
+                        />
+                      </div>
+                    ) : null}
+                    <img
+                      onLoad={() => setLoading(false)}
+                      className="transition duration-500 ease-in-out grayscale hover:grayscale-0 filter h-[200px] w-[320px] md:w-[600px] md:h-[200px] lg:h-[400px] rounded-lg object-cover object-center cursor-pointer hover:border-2 hover:border-gray-700"
+                      src={project.images[0]}
+                      alt={project.name}
+                      loading="lazy"
+                      onClick={() => handleImageClick(project)}
+                    />
+                    <div className="bg-black bg-opacity-50 md:text-2xl text-white absolute bottom-0 left-0 right-0 py-1 text-center">
+                      {t(project.translationKey)}
+                    </div>
+                  </div>
+                </LazyLoad>
+              ))}
             </TabPanel>
           </TabsBody>
         </Tabs>
@@ -477,6 +532,48 @@ const OurWork = () => {
                 </div>
               </LazyLoad>
             ))}
+          </div>
+          {selectedProject &&
+            selectedProject.additionalImages &&
+            selectedProject.additionalImages.length > 0 && (
+              <Slider dots centerMode centerPadding="50px" slidesToShow={3} responsive={[
+                {
+                  breakpoint: 768,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                  }
+                },
+                {
+                  breakpoint: 1024,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                  }
+                }
+              ]}>
+                {selectedProject.additionalImages.map((image, index) => (
+                  <div className="my-8" key={index}>
+                    <img
+                      className="h-[200px] w-[320px] md:w-[600px] md:h-[200px] lg:h-[400px] rounded-lg object-cover object-center cursor-pointer hover:border-2 hover:border-gray-700"
+                      src={image}
+                      alt={`image-${index}`}
+                      loading="lazy"
+                      onClick={() => openModal(image)}
+                    />
+                  </div>
+                ))}
+              </Slider>
+            )}
+        </div>
+      )}
+
+       {/* Модальное окно */}
+       {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" onClick={handleClickOutside}>
+          <div className="bg-white p-4 rounded-lg relative">
+            <span className="absolute top-1 right-1 cursor-pointer text-xl border-1 lg:text-3xl border-2 rounded-full border-black px-2" onClick={closeModal}>Х</span>
+            <img src={selectedImage} alt="Selected" className="max-w-full max-h-screen" />
           </div>
         </div>
       )}

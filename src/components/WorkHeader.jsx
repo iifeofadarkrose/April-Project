@@ -10,22 +10,19 @@ const WorkHeader = () => {
     defaultNS: "translation",
     resources: {
       en: { translation: en },
-      fr: { translation: fr }
-    }
+      fr: { translation: fr },
+    },
   });
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
- 
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
- 
-
   return (
-    <div className="">
-      <div className="flex justify-between lg:justify-center items-center m-8 md:mx-16">
+    <div className="sticky z-50 bg-white border-b-[1px] border-black">
+      <div className="flex justify-between px-4 mx-auto lg:justify-between items-center md:mx-10 py-4">
         <Link
           to="/"
           smooth={true}
@@ -82,13 +79,8 @@ const WorkHeader = () => {
             </div>
           )}
         </div>
-    
-         
-            
-          </div>
-        </div>
-     
-    
+      </div>
+    </div>
   );
 };
 

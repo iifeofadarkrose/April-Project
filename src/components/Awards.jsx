@@ -2,7 +2,7 @@ import { GiTrophyCup } from "react-icons/gi";
 
 const Awards = () => {
   return (
-    <div>
+    <div className="">
       <h1 className="text-5xl md:text-7xl my-12 flex justify-center text-[#9E8372] uppercase mb-2">
         Awards
       </h1>
