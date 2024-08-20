@@ -205,6 +205,7 @@ import mi17 from '../assets/images/michel/mi17.png'
 
 
 import { useTranslation } from "react-i18next";
+
 const OurWork = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -229,12 +230,13 @@ const OurWork = () => {
 
   const handleImageClick = (project) => {
     setSelectedProject(project);
+    setSelectedImage(null); // Reset selected image on project change
   };
 
   const handleBackButtonClick = () => {
     setSelectedProject(null);
+    setSelectedImage(null); // Reset selected image on back
   };
-
   const { t } = useTranslation("translation");
   const projects = [
     {
@@ -430,19 +432,17 @@ const OurWork = () => {
     },
   ];
 
+  
   return (
     <div className="m-8" id="projects">
       {!selectedProject ? (
         <Tabs value={0}>
           <TabsBody className="grid grid-cols-1 gap-4">
-            <TabPanel
-              value={0}
-              className="grid grid-cols-1 gap-4 md:grid-cols-3"
-            >
+            <TabPanel value={0} className="grid grid-cols-1 gap-4 md:grid-cols-3">
               {projects.map((project, index) => (
                 <LazyLoad key={index} height={200} offset={100}>
                   <div className="flex flex-col items-center relative">
-                    {loading ? (
+                    {loading && (
                       <div
                         className="loader-overlay"
                         style={{
@@ -466,7 +466,7 @@ const OurWork = () => {
                           ariaLabel="ball-triangle-loading"
                         />
                       </div>
-                    ) : null}
+                    )}
                     <img
                       onLoad={() => setLoading(false)}
                       className="transition duration-500 ease-in-out grayscale hover:grayscale-0 filter h-[200px] w-[320px] md:w-[600px] md:h-[200px] lg:h-[400px] rounded-lg object-cover object-center cursor-pointer hover:border-2 hover:border-gray-700"
@@ -495,39 +495,14 @@ const OurWork = () => {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {selectedProject.images.map((image, index) => (
               <LazyLoad key={index} height={200} offset={100}>
-                <div className="flex flex-col items-center relative">
-                  {loading ? (
-                    <div
-                      className="loader-overlay"
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: "100%",
-                        height: "100%",
-                        backgroundColor: "rgba(0, 0, 0, 0.5)",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        zIndex: 9999,
-                      }}
-                    >
-                      <BallTriangle
-                        height={30}
-                        width={30}
-                        radius={5}
-                        color="#ffffff"
-                        ariaLabel="ball-triangle-loading"
-                      />
-                    </div>
-                  ) : null}
+                <div className="relative">
                   <img
                     onLoad={() => setLoading(false)}
                     className="h-[200px] w-[320px] md:w-[600px] md:h-[200px] lg:h-[400px] rounded-lg object-cover object-center cursor-pointer hover:border-2 hover:border-gray-700"
                     src={image}
                     alt={`image-${index}`}
                     loading="lazy"
-                    onClick={() => handleImageClick(selectedProject)}
+                    onClick={() => openModal(image)}
                   />
                 </div>
               </LazyLoad>
@@ -568,12 +543,17 @@ const OurWork = () => {
         </div>
       )}
 
-       {/* Модальное окно */}
-       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" onClick={handleClickOutside}>
-          <div className="bg-white p-4 rounded-lg relative">
-            <span className="absolute top-1 right-1 cursor-pointer text-xl border-1 lg:text-3xl border-2 rounded-full border-black px-2" onClick={closeModal}>Х</span>
-            <img src={selectedImage} alt="Selected" className="max-w-full max-h-screen" />
+      {/* Модальное окно */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50" onClick={handleClickOutside}>
+          <div className="bg-gray-300 p-2 rounded-lg relative max-w-4xl max-h-screen">
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-2xl font-bold text-black bg-white rounded-full px-2 "
+            >
+              &times;
+            </button>
+            <img src={selectedImage} alt="Selected" className="max-w-full max-h-screen object-contain" />
           </div>
         </div>
       )}

@@ -7,7 +7,7 @@ const Awards = () => {
         Awards
       </h1>
       <div className="bg-[#5F5F5F]">
-        <div className="flex justify-center p-4 gap-[10%] py-10">
+        <div className="flex justify-center p-4 gap-[5%] py-10">
 
         <div className="p-[6px] lg:p-[24px] shadow-lg ring-1 ring-inset ring-[#7C7C7C] w-[110px] h-[110px] md:w-[160px] md:h-[160px] lg:w-[270px] lg:h-[270px] cursor-pointer hover:ring-white hover:ring-2 hover:shadow-xl">
             <div className="flex items-center justify-between">
@@ -16,10 +16,9 @@ const Awards = () => {
 
             <div className="pt-1">
               <h1 className="text-[8px] md:text-[12px] font-medium text-white md:text-lg lg:text-[20px]">Best art object</h1>
-              <p style={{ fontFamily: 'Poppins' }} className="text-[7px] md:text-[12px] lg:text-[17px] text-[#CACACA]">
+              <p className="text-[7px] md:text-[12px] lg:text-[17px] text-[#CACACA]">
                 «Vodoparad»<br />
-                The internationally recognized festival of object design has been held annually in Kharkiv since 2001.
-              </p>
+                The International Festival of Object Design has been held in Kharkiv annually since 2001.              </p>
             </div>
           </div>
 
@@ -30,11 +29,10 @@ const Awards = () => {
             </div>
 
             <div className="pt-1">
-              <h1 className="text-[8px] md:text-[12px] font-medium text-white md:text-lg lg:text-[20px]">The lights competition </h1>
+              <h1 className="text-[8px] md:text-[12px] font-medium text-white md:text-lg lg:text-[20px]">Lights competition </h1>
               <p style={{ fontFamily: 'Poppins' }} className="text-[7px] md:text-[12px] lg:text-[17px] text-[#CACACA]">
               «Vodoparad»<br/>
-              The internationally recognized festival of object design has been held annually in Kharkiv since 2001.
-              </p>
+              The International Festival of Object Design has been held in Kharkiv annually since 2001.              </p>
             </div>
           </div>
 
@@ -49,7 +47,7 @@ const Awards = () => {
               <h1 className="text-[8px] md:text-[12px] font-medium text-white md:text-lg lg:text-[20px]">Munich competition</h1>
               <p className="text-[7px] font-light md:text-[12px] lg:text-[17px] text-[#CACACA]">
               «Vodoparad»<br/>
-              The internationally recognized festival of object design has been held annually in Kharkiv since 2001.
+              The International Festival of Object Design has been held in Kharkiv annually since 2001.
               </p>
             </div>
           </div>

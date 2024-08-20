@@ -13,7 +13,6 @@ const MainPage = () => {
       <AboutUs />
       <Awards/>
       <ContactUs />
-    
     </div>
   );
 };

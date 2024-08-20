@@ -14,29 +14,31 @@ const Hero = () => {
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>{" "}
       {/* Элемент для затемнения */}
       <div className="absolute top-[25%] left-[20%] right-0 m-8 flex flex-wrap max-h-[100px] lg:max-w-[400px] mr-[20px]">
-        <p className="w-full text-white text-4xl md:text-5xl lg:text-6xl">
+        <p className="w-full text-white text-3xl md:text-5xl lg:text-5xl">
           {t("we_make")}
         </p>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap w-full">
           <span className="uppercase text-[#9E8372] text-5xl md:text-8xl lg:text-11xl">
             {t("design")}
           </span>
-          <ScrollLink
+          
+        </div>
+        <ScrollLink
             to="contact"
             smooth={true}
             duration={500}
-            className="bg-[#9E8372]  text-white border-3  w-fittext-xl px-[5%] py-[1%] md:text-2xl lg:text-4xl cursor-pointer  border-white hover:border-sm hover:border"
+            className="bg-[#9E8372]  text-white  w-fittext-xl p-2 rounded-md md:text-2xl lg:text-4xl cursor-pointer  border-white hover:border-sm hover:border"
             onClick={scrollToBottom}
           >
             {t("contact_us_button")}
           </ScrollLink>
-        </div>
       </div>
       <img
         src={bg1}
         alt="Background"
         className="w-full h-full object-cover z-0"
       />{" "}
+      
     </div>
   );
 };

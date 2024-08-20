@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
+import { BsFillTelephoneInboundFill } from "react-icons/bs";
 
+import { IoMail } from "react-icons/io5";
 export default function ContactUs() {
   const { t } = useTranslation();
 
@@ -109,6 +111,27 @@ export default function ContactUs() {
             {t("submit_button_text")}
           </button>
         </div>
+        <div className="mt-10 flex items-center justify-between">
+  <a href="mailto:aprilconcepte@email.fr" target="_blank" rel="noopener noreferrer" className="flex items-center">
+    <IoMail className="cursor-pointer border mb-1 p-1 border-white rounded-md w-[44px] h-[44px] md:w-[32px] md:h-[32px] fill-[#9E8372] lg:w-[44px] lg:h-[44px]" />
+    <div className="flex flex-col ml-2 text-[#5F5F5F]">
+    <span className="ml-2 text-[#5F5F5F]">aprilconcepte@email.fr</span>
+    <span className="ml-2 text-[#5F5F5F]"n>Paris 75003</span>
+    <span className="ml-2 text-[#5F5F5F]"n>Deauville 14800</span>
+    </div>
+  </a>
+  <div className="flex items-center ml-8">
+    <BsFillTelephoneInboundFill className="cursor-pointer border mb-1 p-1 border-white rounded-md w-[44px] h-[44px] md:w-[32px] md:h-[32px] fill-[#9E8372] lg:w-[44px] lg:h-[44px]" />
+    <div className="flex flex-col ml-2 text-[#5F5F5F]">
+      <a href="tel:+33784236409" target="_blank" rel="noopener noreferrer">(+33) 07. 84. 23. 64. 09.</a>
+      <a href="tel:+33786595508" target="_blank" rel="noopener noreferrer" className="ml-11"> 07. 86. 59. 55. 08.</a>
+    </div>
+  </div>
+</div>
+
+
+
+
       </form>
     </div>
   );
